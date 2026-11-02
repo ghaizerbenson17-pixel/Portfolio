@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Chris Ghaizer Benson</title>
+  <meta name="description" content="Portfolio of Chris Ghaizer Benson, BSIT student and aspiring web developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="logo">Chris <span>Ghaizer</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="btn">Let's Talk</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <h1>Hi, I'm <span>Chris Ghaizer Benson</span>.</h1>
+          <p class="typed-title" aria-label="BSIT Student | Aspiring Web Developer"><span id="typed">BSIT Student | Aspiring Web Developer</span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="lead">A dedicated student-athlete with a passion for technology, creativity, and continuous learning. Building skills both on the field and in web development.</p>
+          <div class="btn-row">
+            <a href="#Family" id="view-family" class="btn">View My Family</a>
+            <a href="contact.html" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+        <!-- Replace profile.jpg with your own photo (same folder as index.html). -->
+        <figure class="hero-photo">
+          <img src="1.jpg" alt="Profile photo of Chris Ghaizer Benson">
+        </figure>
+      </div>
+    </section>
+
+    <section class="alt is-hidden" id="Family">
+      <div class="container">
+        <div class="section-head">
+          <h2>Family</h2>
+          <p class="lead">My Loved Ones</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Father</h3>
+            <figure class="hero-photo">
+          <img src="2.jpg" alt="Photo of my father">
+        </figure>
+            <p>The one who taught me how to live.</p>
+      
+          </article>
+          <article class="card">
+            <h3>Mother</h3>
+            <figure class="hero-photo">
+          <img src="3.jpg" alt="Photo of my mother">
+        </figure>
+            <p>The one who supported me through everything.</p>
+           
+          </article>
+          <article class="card">
+            <h3>Sister</h3>
+            <figure class="hero-photo">
+              <img src="4.jpg" alt="Photo of my sister">
+            </figure>
+            <p>The one who shares my interests and keeps me motivated.</p>
+            
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <h2>Let's Work Together</h2>
+          <p>Have an idea, a question, or an opportunity? I'd love to hear from you.</p>
+          <a href="contact.html" class="btn">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Chris Ghaizer Benson</strong> &copy; <span class="year">2026</span>. All rights reserved.</p>
+      <ul class="socials">
+        <li><a href="https://www.facebook.com/ghaizer.rodriguez" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/ghaizerz_17/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com/ghaizerbenson17-pixel" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

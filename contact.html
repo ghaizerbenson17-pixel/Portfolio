@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Chris Ghaizer Benson</title>
+  <meta name="description" content="Portfolio of Chris Ghaizer Benson, BSIT student and aspiring web developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="logo">Chris <span>Ghaizer</span></a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="contact.html" class="btn">Let's Talk</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="page-intro">
+      <div class="container">
+        <h1>Get In Touch</h1>
+        <p class="lead" style="margin-top:1rem">I'm always open to connecting with people, sharing ideas, and exploring new opportunities.</p>
+      </div>
+    </section>
+    <section>
+      <div class="container contact-grid">
+        <ul class="contact-list">
+          <li><strong>Email Address</strong><a href="mailto:ghaizerbenson17@gmail.com">ghaizerbenson17@gmail.com</a></li>
+          <li><strong>Facebook</strong><a href="https://www.facebook.com/ghaizer.rodriguez" target="_blank" rel="noopener noreferrer">https://www.facebook.com/ghaizer.rodriguez</a></li>
+          <li><strong>Instagram</strong><a href="https://www.instagram.com/ghaizerz_17/" target="_blank" rel="noopener noreferrer">instagram.com/ghaizerz_17/</a></li>
+          <li><strong>GitHub</strong><a href="https://github.com/ghaizerbenson17-pixel" target="_blank" rel="noopener noreferrer">github.com/ghaizerbenson17-pixel</a></li>
+        </ul>
+        <form id="contact-form" novalidate>
+          <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" autocomplete="name" required><span class="error" aria-live="polite"></span></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" required><span class="error" aria-live="polite"></span></div>
+          <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" required><span class="error" aria-live="polite"></span></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="error" aria-live="polite"></span></div>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="form-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Chris Ghaizer Benson</strong> &copy; <span class="year">2026</span>. All rights reserved.</p>
+      <ul class="socials">
+        <li><a href="https://www.facebook.com/ghaizer.rodriguez" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/ghaizerz_17/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com/ghaizerbenson17-pixel" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
