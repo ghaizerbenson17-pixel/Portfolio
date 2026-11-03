@@ -255,3 +255,13 @@ main > section {
 main:has(#Family:not(.is-hidden)) > section:last-child {
   display: none;
 }
+
+html, body {
+  height: auto;
+  overflow: auto;
+  overflow-y: auto;
+}
+
+body.no-scroll {
+  overflow: auto;
+}
