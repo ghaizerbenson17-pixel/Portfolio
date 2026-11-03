@@ -187,3 +187,8 @@ textarea{min-height:150px;resize:vertical}
   vertical-align: text-bottom;
   animation: blink 1s steps(1) infinite;
 }
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
