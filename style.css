@@ -187,3 +187,101 @@ textarea{min-height:150px;resize:vertical}
   vertical-align: text-bottom;
   animation: blink 1s steps(1) infinite;
 }
+
+/* ===== Homepage fits one screen (no scrolling needed) ===== */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Hero takes all the leftover space */
+main > section.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.hero h1 { font-size: clamp(1.8rem, 6vh, 3.4rem); }
+.hero .typed-title { min-height: 0; margin: 0.5rem 0 0.75rem; }
+.hero p.lead { margin-bottom: 1rem; line-height: 1.5; }
+
+/* Photo box sized by screen height, square, picture fills it */
+.hero .hero-photo {
+  width: auto;
+  height: clamp(180px, 48vh, 460px);
+  max-height: none;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+  padding: 0;
+  border-radius: 24px;
+}
+
+.hero .hero-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* picture fills the whole box */
+  object-position: center top; /* keeps your face from being cropped */
+}
+
+/* Compact "Let's Work Together" strip */
+main > section:last-child {
+  padding: 0.75rem 0;
+}
+
+.cta {
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+}
+.cta h2 { font-size: 1.2rem; margin: 0; }
+.cta p { margin: 0; font-size: 0.95rem; line-height: 1.4; }
+
+@media (min-width: 721px) {
+  .cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .cta p { margin: 0 auto 0 0; }
+}
+
+/* Compact footer */
+.site-footer { padding: 1rem 0; }
+
+/* Family section: compact, square photos */
+#Family { padding: 1.5rem 0; }
+#Family .section-head { margin-bottom: 1rem; }
+#Family .card { padding: 1rem; }
+#Family .card .hero-photo {
+  width: auto;
+  height: clamp(100px, 22vh, 220px);
+  aspect-ratio: 1 / 1;
+  max-height: none;
+  margin: 0.5rem auto;
+  padding: 0;
+  border-radius: 16px;
+}
+
+/* When Family is open, hide the hero and CTA so the cards fit */
+main:has(#Family:not(.is-hidden)) > .hero,
+main:has(#Family:not(.is-hidden)) > section:last-child {
+  display: none;
+}
+
+/* Phones / tablets: stack, smaller photo (scrolling is fine here) */
+@media (max-width: 900px) {
+  .hero .hero-photo { height: clamp(160px, 30vh, 320px); }
+}
