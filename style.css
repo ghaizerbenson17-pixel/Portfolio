@@ -188,11 +188,6 @@ textarea{min-height:150px;resize:vertical}
   animation: blink 1s steps(1) infinite;
 }
 
-/* One-screen layout */
-html, body {
-  height: 100%;
-  overflow: hidden;
-}
 
 body {
   display: flex;
