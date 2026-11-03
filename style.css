@@ -189,63 +189,69 @@ textarea{min-height:150px;resize:vertical}
 }
 
 
+/* Fit everything on one screen, but still allow scrolling */
 body {
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  height: 100dvh; /* better on mobile browsers */
 }
 
-.site-header,
-.site-footer {
-  flex: 0 0 auto;
-}
-
-.site-footer {
-  padding: 0.75rem 0;
-}
-
-/* Main content fills the leftover space and centers vertically */
 main {
   flex: 1;
-  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.hero {
-  padding: 0;
+.site-header { padding: 0.5rem 0; }
+.site-footer { padding: 0.5rem 0; }
+
+/* Compact sections: spacing and sizes scale with screen height */
+main > section {
+  padding: 1.5vh 0;
 }
 
-/* Photo scales with screen height so it never overflows */
+.hero h1 {
+  font-size: clamp(1.5rem, 5vh, 3rem);
+  margin: 0 0 1vh;
+}
+
+.hero .lead,
+.hero .typed-title {
+  font-size: clamp(0.85rem, 2.2vh, 1.1rem);
+  margin: 0 0 1.5vh;
+}
+
 .hero .hero-photo img {
-  max-height: 55vh;
   width: auto;
+  max-height: 32vh;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* Family section: compact so 3 cards fit */
-#Family {
-  padding: 1rem 0;
-}
+/* Family cards */
+#Family .section-head { margin-bottom: 1vh; }
+#Family .section-head h2 { font-size: clamp(1.2rem, 3.5vh, 2rem); margin: 0; }
+#Family .card { padding: 1vh 1rem; }
+#Family .card h3 { margin: 0 0 0.5vh; font-size: clamp(0.95rem, 2.4vh, 1.2rem); }
+#Family .card p { margin: 0.5vh 0 0; font-size: clamp(0.75rem, 1.8vh, 0.95rem); }
 
 #Family .card .hero-photo img {
-  max-height: 22vh;
   width: auto;
+  max-height: 16vh;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* When Family is revealed, hide the hero so the cards have room */
-.hero:has(~ #Family:not(.is-hidden)) {
-  display: none;
-}
+/* Compact "Let's Work Together" box */
+.cta { padding: 2vh 1rem; }
+.cta h2 { font-size: clamp(1.1rem, 3vh, 1.6rem); margin: 0 0 0.5vh; }
+.cta p { font-size: clamp(0.8rem, 1.9vh, 1rem); margin: 0 0 1vh; }
 
-/* Hide the "Let's Work Together" section (it's what pushes the page down) */
-main > section:last-child {
+/* When Family is open, drop the CTA so the cards have room */
+main:has(#Family:not(.is-hidden)) > section:last-child {
   display: none;
 }
