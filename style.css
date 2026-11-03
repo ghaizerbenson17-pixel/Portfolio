@@ -188,7 +188,69 @@ textarea{min-height:150px;resize:vertical}
   animation: blink 1s steps(1) infinite;
 }
 
+/* One-screen layout */
 html, body {
-  overflow: hidden;
   height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh; /* better on mobile browsers */
+}
+
+.site-header,
+.site-footer {
+  flex: 0 0 auto;
+}
+
+.site-footer {
+  padding: 0.75rem 0;
+}
+
+/* Main content fills the leftover space and centers vertically */
+main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero {
+  padding: 0;
+}
+
+/* Photo scales with screen height so it never overflows */
+.hero .hero-photo img {
+  max-height: 55vh;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Family section: compact so 3 cards fit */
+#Family {
+  padding: 1rem 0;
+}
+
+#Family .card .hero-photo img {
+  max-height: 22vh;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* When Family is revealed, hide the hero so the cards have room */
+.hero:has(~ #Family:not(.is-hidden)) {
+  display: none;
+}
+
+/* Hide the "Let's Work Together" section (it's what pushes the page down) */
+main > section:last-child {
+  display: none;
 }
