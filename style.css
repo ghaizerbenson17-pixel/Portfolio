@@ -131,17 +131,6 @@ textarea{min-height:150px;resize:vertical}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-/* Center the Family section */
-.alt .section-head{text-align:center}
-.alt .section-head .lead{margin-inline:auto}
-.alt .card{text-align:center}
-.alt .tags{justify-content:center}
-
-/* Hidden until "View My Family" is clicked */
-.is-hidden {
-  display: none;
-}
-
 /* About Me box */
 .about-box {
   background: #EEF3F9;
@@ -261,27 +250,76 @@ main > section:last-child {
 /* Compact footer */
 .site-footer { padding: 1rem 0; }
 
-/* Family section: compact, square photos */
-#Family { padding: 1.5rem 0; }
-#Family .section-head { margin-bottom: 1rem; }
-#Family .card { padding: 1rem; }
-#Family .card .hero-photo {
-  width: auto;
-  height: clamp(100px, 22vh, 220px);
-  aspect-ratio: 1 / 1;
-  max-height: none;
-  margin: 0.5rem auto;
-  padding: 0;
-  border-radius: 16px;
-}
-
-/* When Family is open, hide the hero and CTA so the cards fit */
-main:has(#Family:not(.is-hidden)) > .hero,
-main:has(#Family:not(.is-hidden)) > section:last-child {
-  display: none;
-}
-
 /* Phones / tablets: stack, smaller photo (scrolling is fine here) */
 @media (max-width: 900px) {
   .hero .hero-photo { height: clamp(160px, 30vh, 320px); }
 }
+
+
+/* ===== Shared tweaks ===== */
+.page-intro .lead{margin-top:.75rem}
+.icon svg{width:55%;height:55%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-list a{overflow-wrap:anywhere}
+
+/* Contact: name + email side by side */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field-row .field{min-width:0}
+@media(max-width:720px){.field-row{grid-template-columns:1fr}}
+
+/* My Family page */
+.family .section-head{text-align:center;margin-bottom:1.5rem}
+.family .section-head .lead{margin-inline:auto}
+.family .card{text-align:center}
+.family .card .hero-photo{width:auto;height:clamp(140px,32vh,300px);aspect-ratio:1/1;max-height:none;margin:.75rem auto;padding:0;border-radius:16px}
+
+/* Achievements: image frames */
+.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.frame{background:var(--card);border:1px solid var(--border);border-top:4px solid var(--peach);border-radius:var(--radius);
+  padding:.6rem;box-shadow:0 2px 8px rgba(0,10,30,.25);transition:transform .25s,box-shadow .25s}
+.frame:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.frame-img{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;display:grid;place-items:center;text-align:center;
+  padding:.5rem;font-size:.9rem;color:var(--muted);background:linear-gradient(145deg,var(--card),var(--bg-top))}
+.frame-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame-img img.hidden{display:none}
+main > section.frames-section{padding:1rem 0 2rem}
+main > section.timeline-section{padding:1rem 0 3rem}
+@media(max-width:720px){.frames{grid-template-columns:1fr}}
+
+/* ===== One-screen pages: About, Contact, My Family (no scrolling on desktop) =====
+   On smaller screens these pages scroll normally so nothing gets cut off. */
+@media (min-width:1100px){
+  html:has(body.fit-screen){font-size:clamp(11px,2vh,16px)}
+  body.fit-screen{height:100vh;height:100dvh;min-height:0;overflow:hidden}
+  body.fit-screen main{justify-content:center}
+  body.fit-screen main > section{padding:.75rem 0}
+  body.fit-screen h1{font-size:2.1rem}
+  body.fit-screen .page-intro .lead{margin-top:.4rem}
+
+  /* About */
+  body.fit-screen .about-box{margin-top:.6rem;padding:1.1rem 1.5rem 1.1rem 1.75rem;box-shadow:5px 5px 0 var(--footer)}
+  body.fit-screen .about-box p{font-size:.95rem;line-height:1.6}
+  body.fit-screen .about-box p + p{margin-top:.7rem}
+  .about-cards{grid-template-columns:repeat(4,1fr);gap:1.25rem}
+  .about-cards .card{padding:1.1rem}
+  .about-cards .card h3{font-size:1.05rem;margin-bottom:.35rem}
+  .about-cards .card p{font-size:.88rem;line-height:1.55}
+  .about-cards .icon{width:2.5rem;height:2.5rem;margin-bottom:.6rem}
+
+  /* Contact */
+  body.fit-screen .contact-grid{gap:1.5rem}
+  body.fit-screen .contact-list{gap:.7rem}
+  body.fit-screen .contact-list li{padding:.7rem 1rem}
+  body.fit-screen form{padding:1.1rem 1.4rem;gap:.55rem}
+  body.fit-screen label{font-size:.9rem;line-height:1.4}
+  body.fit-screen input,body.fit-screen textarea{padding:.5rem .8rem;margin-top:.2rem;line-height:1.4}
+  body.fit-screen textarea{min-height:5rem;resize:none}
+  body.fit-screen .error{font-size:.78rem;line-height:1.2;min-height:1em;margin-top:.15rem}
+  body.fit-screen .form-status{font-size:.85rem;padding:.6rem .8rem}
+  body.fit-screen form .btn{padding:.55rem 1.2rem}
+
+  /* My Family */
+  body.fit-screen .family .section-head{margin-bottom:1rem}
+  body.fit-screen .family .card{padding:1rem}
+  body.fit-screen .family .card .hero-photo{height:clamp(120px,34vh,320px);margin:.5rem auto}
+}
+
