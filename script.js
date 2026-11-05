@@ -32,12 +32,11 @@ if (typed && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   tick();
 }
 
-// 4. Profile photo: hide the image if the file isn't found so the placeholder shows
-const photo = document.querySelector('.hero-photo img');
-if (photo) {
-  photo.addEventListener('error', () => photo.classList.add('hidden'));
-  if (photo.complete && photo.naturalWidth === 0) photo.classList.add('hidden');
-}
+// 4. Photos: hide an image if its file isn't found so the placeholder shows
+document.querySelectorAll('.hero-photo img, .frame-img img').forEach(img => {
+  img.addEventListener('error', () => img.classList.add('hidden'));
+  if (img.complete && img.naturalWidth === 0) img.classList.add('hidden');
+});
 
 // 5. Contact form validation (no message is actually sent)
 const form = document.getElementById('contact-form');
@@ -73,29 +72,17 @@ if (form) {
   });
 }
 
-// 6. Show the Family section only when "View My Family" is clicked
-const familyBtn = document.getElementById('view-family');
-const familySection = document.getElementById('Family');
-if (familyBtn && familySection) {
-  familyBtn.addEventListener('click', e => {
-    e.preventDefault();
-    familySection.classList.remove('is-hidden');
-    familySection.scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-// 7. Typing effect for the Skills description
-const skillsTyping = document.getElementById('skills-typing');
-if (skillsTyping && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const fullText = skillsTyping.textContent.trim();
-  skillsTyping.setAttribute('aria-label', fullText);
-  skillsTyping.textContent = '';
-  skillsTyping.classList.add('typing');
+// 6. Typing effect for any ".typewriter" text (e.g. the Achievements description)
+document.querySelectorAll('.typewriter').forEach(el => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const fullText = el.textContent.trim();
+  el.setAttribute('aria-label', fullText);
+  el.textContent = '';
+  el.classList.add('typing');
   let i = 0;
   const typeNext = () => {
-    skillsTyping.textContent = fullText.slice(0, ++i);
+    el.textContent = fullText.slice(0, ++i);
     if (i < fullText.length) setTimeout(typeNext, 45); // 45 = speed in milliseconds
-    
   };
   typeNext();
-}
+});
