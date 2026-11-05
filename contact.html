@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="fit-screen">
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a href="index.html" class="logo">Chris <span>Ghaizer</span></a>
@@ -21,7 +21,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Me</a></li>
         <li><a href="achievements.html">Achievements</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="family.html">My Family</a></li>
         <li><a href="contact.html" class="btn">Let's Talk</a></li>
       </ul>
     </nav>
@@ -30,7 +30,7 @@
     <section class="page-intro">
       <div class="container">
         <h1>Get In Touch</h1>
-        <p class="lead" style="margin-top:1rem">I'm always open to connecting with people, sharing ideas, and exploring new opportunities.</p>
+        <p class="lead">I'm always open to connecting with people, sharing ideas, and exploring new opportunities.</p>
       </div>
     </section>
     <section>
@@ -42,8 +42,10 @@
           <li><strong>GitHub</strong><a href="https://github.com/ghaizerbenson17-pixel" target="_blank" rel="noopener noreferrer">github.com/ghaizerbenson17-pixel</a></li>
         </ul>
         <form id="contact-form" novalidate>
+          <div class="field-row">
           <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" autocomplete="name" required><span class="error" aria-live="polite"></span></div>
           <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" required><span class="error" aria-live="polite"></span></div>
+          </div>
           <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" required><span class="error" aria-live="polite"></span></div>
           <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="error" aria-live="polite"></span></div>
           <button type="submit" class="btn">Send Message</button>
