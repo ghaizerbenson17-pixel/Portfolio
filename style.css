@@ -427,3 +427,37 @@ body.fit-screen main{position:relative;z-index:1}
   body.fit-screen .about-box p{font-size:1.1rem;line-height:1.55}
   body.fit-screen .about-box p + p{margin-top:.6rem}
 }
+
+/* ===== Background designs ===== */
+
+/* Layer 1: dot grid + soft color glows */
+html::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(rgba(179,207,229,.16) 1.5px, transparent 1.6px) 0 0 / 28px 28px,
+    radial-gradient(520px circle at 12% 20%, rgba(45,212,191,.14), transparent 70%),
+    radial-gradient(600px circle at 88% 85%, rgba(255,211,110,.11), transparent 70%),
+    radial-gradient(480px circle at 75% 10%, rgba(248,205,138,.08), transparent 70%);
+  /* fade the dots toward the middle so text stays clean */
+  -webkit-mask-image:radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%, #000 85%);
+          mask-image:radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%, #000 85%);
+}
+
+/* Layer 2: concentric rings in two corners (like a soccer center circle) */
+html::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    repeating-radial-gradient(circle at 100% 0%, transparent 0 46px, rgba(179,207,229,.10) 46px 48px),
+    repeating-radial-gradient(circle at 0% 100%, transparent 0 46px, rgba(255,211,110,.10) 46px 48px);
+  -webkit-mask-image:
+    radial-gradient(circle 420px at 100% 0%, #000, transparent 100%),
+    radial-gradient(circle 420px at 0% 100%, #000, transparent 100%);
+          mask-image:
+    radial-gradient(circle 420px at 100% 0%, #000, transparent 100%),
+    radial-gradient(circle 420px at 0% 100%, #000, transparent 100%);
+}
+
+/* Optional: slightly lighter panel strip behind sections for depth */
+main > section:nth-of-type(even){
+  background:linear-gradient(90deg, transparent, rgba(3,18,46,.25), transparent);
+}
