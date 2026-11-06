@@ -322,7 +322,8 @@ main > section.timeline-section{padding:1rem 0 3rem}
   body.fit-screen .family .card{padding:1rem}
   body.fit-screen .family .card .hero-photo{height:clamp(120px,34vh,320px);margin:.5rem auto}
 }
- .edu-list{list-style:none;margin-top:.6rem;display:grid;gap:.35rem;font-size:.88rem;color:var(--text)}
+
+.edu-list{list-style:none;margin-top:.6rem;display:grid;gap:.35rem;font-size:.88rem;color:var(--text)}
 .edu-list strong{color:var(--gold)}
 
 /* ===== About Me designs ===== */
