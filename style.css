@@ -324,3 +324,105 @@ main > section.timeline-section{padding:1rem 0 3rem}
 }
  .edu-list{list-style:none;margin-top:.6rem;display:grid;gap:.35rem;font-size:.88rem;color:var(--text)}
 .edu-list strong{color:var(--gold)}
+
+/* ===== About Me designs ===== */
+
+/* Soft glowing background shapes */
+body.fit-screen::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(420px circle at 8% 25%, rgba(45,212,191,.16), transparent 70%),
+    radial-gradient(520px circle at 92% 80%, rgba(255,211,110,.12), transparent 70%),
+    radial-gradient(360px circle at 70% 8%, rgba(179,207,229,.12), transparent 70%);
+}
+body.fit-screen main{position:relative;z-index:1}
+
+/* Heading */
+.eyebrow{
+  display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:.25rem;
+}
+.page-intro h1 span{color:var(--gold)}
+.page-intro h1::after{
+  content:"";display:block;width:70px;height:4px;border-radius:4px;margin-top:.5rem;
+  background:linear-gradient(90deg,var(--gold),var(--peach),var(--teal));
+}
+
+/* About box: big quote mark + accent corner */
+.about-box{position:relative;overflow:hidden}
+.about-box::before{
+  content:"\201C";position:absolute;top:-1rem;right:1.25rem;
+  font-family:Georgia,serif;font-size:8rem;line-height:1;
+  color:rgba(10,31,68,.08);pointer-events:none;
+}
+.about-box::after{
+  content:"";position:absolute;right:0;bottom:0;width:90px;height:90px;
+  background:linear-gradient(135deg,transparent 50%,rgba(255,211,110,.35) 50%);
+}
+
+/* Cards */
+.about-cards .card{
+  background:linear-gradient(160deg,var(--card),#082247);
+  position:relative;overflow:hidden;
+}
+.about-cards .card::after{
+  content:"";position:absolute;right:-30px;bottom:-30px;width:90px;height:90px;
+  border-radius:50%;background:rgba(255,211,110,.07);
+}
+.about-cards .card:nth-child(1){border-top-color:var(--peach)}
+.about-cards .card:nth-child(2){border-top-color:var(--teal)}
+.about-cards .card:nth-child(3){border-top-color:var(--gold)}
+.about-cards .card:nth-child(4){border-top-color:var(--muted)}
+.about-cards .card:hover{box-shadow:0 12px 32px rgba(0,10,30,.45),0 0 0 1px rgba(255,211,110,.25)}
+
+/* Gradient icon badges */
+.about-cards .icon{
+  background:linear-gradient(135deg,var(--peach),var(--gold));
+  box-shadow:0 6px 14px rgba(248,205,138,.25);
+  transition:transform .25s;
+}
+.about-cards .card:hover .icon{transform:rotate(-6deg) scale(1.08)}
+.about-cards .card:nth-child(2) .icon{background:linear-gradient(135deg,#7CF0E0,var(--teal))}
+.about-cards .card:nth-child(4) .icon{background:linear-gradient(135deg,#E3F0FB,var(--muted))}
+
+/* Education list as a mini timeline */
+.edu-list{
+  position:relative;padding-left:1rem;margin-left:.25rem;
+  border-left:2px dashed var(--border);gap:.5rem;
+}
+.edu-list li{position:relative}
+.edu-list li::before{
+  content:"";position:absolute;left:calc(-1rem - 5px);top:.55em;
+  width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 3px rgba(255,211,110,.2);
+}
+
+/* ===== Bigger About Me text ===== */
+
+/* Base (tablets/phones and any screen that scrolls) */
+.page-intro h1{font-size:clamp(2.4rem,6vw,3.6rem)}
+.about-box p{font-size:1.15rem;line-height:1.8}
+
+/* Desktop one-screen layout (overrides the smaller fit-screen sizes) */
+@media (min-width:1100px){
+  body.fit-screen .page-intro h1{font-size:2.8rem}
+  body.fit-screen .about-box{padding:1.4rem 2rem 1.4rem 2.25rem}
+  body.fit-screen .about-box p{font-size:1.2rem;line-height:1.65}
+  body.fit-screen .about-box p + p{margin-top:.8rem}
+}
+
+/* ===== Smaller About box ===== */
+.about-box{
+  max-width: 1000px;          /* narrower box (was full width) */
+  padding: 1.25rem 1.5rem 1.25rem 1.75rem;
+}
+
+@media (min-width:1100px){
+  body.fit-screen .about-box{
+    max-width: 1100px;
+    padding: .9rem 1.4rem .9rem 1.6rem;
+    box-shadow: 4px 4px 0 var(--footer);
+  }
+  body.fit-screen .about-box p{font-size:1.1rem;line-height:1.55}
+  body.fit-screen .about-box p + p{margin-top:.6rem}
+}
