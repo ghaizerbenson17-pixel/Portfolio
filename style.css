@@ -646,3 +646,60 @@ main > section:nth-of-type(even){
   width:120px;height:120px;right:-40px;bottom:12%;
   background:radial-gradient(circle,rgba(255,211,110,.18),transparent 70%);
 }
+
+/* ===== Family: side designs + banner fix ===== */
+.family{position:relative;overflow:hidden}
+.family .container{position:relative;z-index:1}
+.side-deco{display:none}
+
+/* Only on wide screens, where there is real empty space beside the cards */
+@media (min-width:1500px){
+  .side-deco{
+    display:flex;flex-direction:column;align-items:center;gap:1rem;
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:clamp(110px,12vw,220px);pointer-events:none;z-index:0;
+  }
+  .side-deco.left{left:2%}
+  .side-deco.right{right:2%}
+}
+
+/* Round badge with a slowly spinning dashed ring */
+.sd-badge{
+  position:relative;width:clamp(70px,7vw,120px);aspect-ratio:1;
+  display:grid;place-items:center;color:var(--gold);
+}
+.sd-badge.alt{color:var(--teal)}
+.sd-badge svg{width:48%;height:48%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sd-ring{
+  position:absolute;inset:0;border-radius:50%;
+  border:2px dashed rgba(179,207,229,.45);
+  box-shadow:0 0 30px rgba(255,211,110,.15) inset;
+  animation:sd-spin 30s linear infinite;
+}
+.sd-badge.alt .sd-ring{box-shadow:0 0 30px rgba(45,212,191,.18) inset}
+@keyframes sd-spin{to{transform:rotate(360deg)}}
+
+/* Vertical line, vertical text, dots */
+.sd-line{width:2px;height:clamp(40px,9vh,100px);border-radius:2px;
+  background:linear-gradient(to bottom,transparent,var(--peach),transparent)}
+.sd-text{
+  writing-mode:vertical-rl;text-transform:uppercase;letter-spacing:.45em;
+  font-weight:600;font-size:.85rem;color:var(--muted);
+}
+.sd-dots{display:flex;gap:.5rem}
+.sd-dots i{width:9px;height:9px;border-radius:50%;background:var(--gold);opacity:.8}
+.sd-dots i:nth-child(2){background:var(--teal)}
+.sd-dots i:nth-child(3){background:var(--muted)}
+
+/* Quote banner (centered pill, hearts on each side) */
+.family-quote{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin:1.25rem auto 0;padding:.8rem 1.5rem;max-width:760px;text-align:center;
+  background:linear-gradient(90deg,transparent,rgba(3,18,46,.55),transparent);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:999px;
+}
+.family-quote p{color:var(--white);font-weight:600;font-style:italic;margin:0;font-size:clamp(.9rem,2vh,1.1rem)}
+.fq-heart{
+  width:1.8rem;height:1.8rem;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--peach),var(--gold));color:var(--on-peach);font-size:.85rem;
+}
