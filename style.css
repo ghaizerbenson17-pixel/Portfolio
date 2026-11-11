@@ -461,3 +461,56 @@ html::after{
 main > section:nth-of-type(even){
   background:linear-gradient(90deg, transparent, rgba(3,18,46,.25), transparent);
 }
+
+/* ===== Achievements: one screen + eye-catching design ===== */
+
+/* Timeline items become numbered cards */
+.timeline{counter-reset:ach;border-left:0;padding-left:0;gap:1rem}
+.timeline li{
+  counter-increment:ach;position:relative;
+  background:linear-gradient(160deg,var(--card),#082247);
+  border:1px solid var(--border);border-left:4px solid var(--gold);
+  border-radius:14px;padding:.9rem 1rem .9rem 3.6rem;
+  box-shadow:0 2px 8px rgba(0,10,30,.25);
+  transition:transform .25s,box-shadow .25s,border-left-color .25s;
+}
+.timeline li:hover{
+  transform:translateY(-3px);border-left-color:var(--teal);
+  box-shadow:0 12px 32px rgba(0,10,30,.45);
+}
+.timeline li::before{
+  content:counter(ach);position:absolute;left:.9rem;top:50%;transform:translateY(-50%);
+  width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;
+  font-weight:700;color:var(--on-peach);
+  background:linear-gradient(135deg,var(--peach),var(--gold));
+  box-shadow:0 0 0 4px rgba(255,211,110,.18);
+}
+.timeline li:nth-child(even)::before{background:linear-gradient(135deg,#7CF0E0,var(--teal))}
+
+/* Photo frames: glow, zoom on hover, star badge */
+.frame{position:relative;overflow:visible}
+.frame::after{
+  content:"\2605";position:absolute;top:-.7rem;right:-.5rem;
+  width:1.8rem;height:1.8rem;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--peach),var(--gold));color:var(--on-peach);
+  font-size:.95rem;box-shadow:0 4px 10px rgba(0,10,30,.4);
+}
+.frame:hover{box-shadow:0 12px 32px rgba(0,10,30,.45),0 0 0 1px rgba(255,211,110,.35)}
+.frame-img img{transition:transform .5s}
+.frame:hover .frame-img img{transform:scale(1.06)}
+
+/* 2 columns on desktop (fills the empty right side) */
+@media (min-width:900px){
+  .timeline{grid-template-columns:repeat(2,1fr);gap:1rem 1.5rem}
+}
+
+/* No scrolling on desktop */
+@media (min-width:1100px){
+  body.fit-screen .frame-img{aspect-ratio:auto;height:clamp(110px,27vh,250px)}
+  body.fit-screen main > section.frames-section{padding:.9rem 0 .5rem}
+  body.fit-screen main > section.timeline-section{padding:.5rem 0}
+  body.fit-screen .timeline{gap:.7rem 1.5rem}
+  body.fit-screen .timeline li{padding:.6rem 1rem .6rem 3.4rem}
+  body.fit-screen .timeline h3{font-size:1rem}
+  body.fit-screen .timeline p{font-size:.88rem;line-height:1.4}
+}
