@@ -587,3 +587,62 @@ main > section:nth-of-type(even){
   body.fit-screen .family .card p{font-size:.85rem;line-height:1.4}
   body.fit-screen .family .card h3{font-size:.9rem}
 }
+
+/* ===== My Family: fill the empty spaces ===== */
+
+/* Wider layout and bigger heading */
+.family .container{width:min(1300px,95%);position:relative}
+.family .section-head h1{font-size:clamp(2.2rem,5vh,3rem)}
+.family .section-head .lead{font-size:1.05rem}
+
+/* Cards stretch: photo grows to fill the card */
+@media (min-width:1100px){
+  .family .grid{grid-template-columns:repeat(4,1fr);gap:1.5rem;align-items:stretch}
+  .family .card{display:flex;flex-direction:column;align-items:center;padding:1.1rem}
+  body.fit-screen .family .card .hero-photo{
+    width:100%;height:clamp(180px,40vh,460px);margin:.7rem 0;flex:0 0 auto;
+  }
+  body.fit-screen .family .card p{margin-top:auto;padding:0 .25rem}
+  body.fit-screen main > section.family{padding:1rem 0}
+}
+
+/* Quote banner under the cards */
+.family-quote{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin:1.25rem auto 0;padding:.8rem 1.5rem;max-width:760px;
+  background:linear-gradient(90deg,transparent,rgba(3,18,46,.55),transparent);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  border-radius:999px;text-align:center;
+}
+.family-quote p{
+  color:var(--white);font-weight:600;font-style:italic;
+  font-size:clamp(.9rem,2vh,1.1rem);margin:0;
+}
+.fq-heart{
+  width:1.8rem;height:1.8rem;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:linear-gradient(135deg,var(--peach),var(--gold));color:var(--on-peach);font-size:.85rem;
+}
+
+/* Decorative rings and glow behind the family section */
+.family::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 220px, rgba(179,207,229,.07) 220px 222px, transparent 222px 300px, rgba(255,211,110,.06) 300px 302px, transparent 302px),
+    radial-gradient(500px circle at 10% 90%, rgba(45,212,191,.12), transparent 70%),
+    radial-gradient(500px circle at 90% 10%, rgba(255,211,110,.10), transparent 70%);
+}
+.family{position:relative}
+
+/* Floating soft dots in the side spaces */
+.family .container::before,
+.family .container::after{
+  content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none;
+}
+.family .container::before{
+  width:160px;height:160px;left:-60px;top:20%;
+  border:2px dashed rgba(179,207,229,.2);
+}
+.family .container::after{
+  width:120px;height:120px;right:-40px;bottom:12%;
+  background:radial-gradient(circle,rgba(255,211,110,.18),transparent 70%);
+}
