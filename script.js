@@ -32,10 +32,27 @@ if (typed && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   tick();
 }
 
-// 4. Photos: hide an image if its file isn't found so the placeholder shows
+// 4. Photos: if an image fails, try other common extensions, then hide it so the placeholder shows
+const EXTS = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG'];
 document.querySelectorAll('.hero-photo img, .frame-img img').forEach(img => {
-  img.addEventListener('error', () => img.classList.add('hidden'));
-  if (img.complete && img.naturalWidth === 0) img.classList.add('hidden');
+  const original = img.getAttribute('src');
+  const base = original.replace(/\.[^./]+$/, '');
+  const tried = [original];
+
+  const fail = () => {
+    const next = EXTS.map(e => `${base}.${e}`).find(p => !tried.includes(p));
+    if (next) {
+      tried.push(next);
+      img.src = next;
+    } else {
+      console.warn('Image failed to load. Tried:', tried);
+      img.classList.add('hidden');
+    }
+  };
+
+  img.addEventListener('load', () => img.classList.remove('hidden'));
+  img.addEventListener('error', fail);
+  if (img.complete && img.naturalWidth === 0) fail();
 });
 
 // 5. Contact form validation (no message is actually sent)
