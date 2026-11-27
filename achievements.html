@@ -13,12 +13,11 @@
 <body class="fit-screen">
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
-      <a href="index.html" class="logo">Chris <span>Ghaizer</span></a>
+      <a href="index.html" class="home-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>Home</a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">Personal Information</a></li>
         <li><a href="achievements.html" aria-current="page">Achievements</a></li>
         <li><a href="family.html">Family and Friends</a></li>
@@ -26,29 +25,96 @@
     </nav>
   </header>
   <main>
-    <section class="page-intro">
-      <div class="container">
-        <h1>Achievements</h1>
-        <p class="lead typewriter" id="achievements-typing">Milestones, awards, and certifications.</p>
+      <div class="side-deco left sd-mint">
+        <button type="button" class="sd-badge sd-btn" data-sd data-symbols="★|✦" data-msgs="Champion!|Gold medal!|MVP!|Winner!" data-colors="#7CF0E0,#2DD4BF,#FFFFFF,#E3F0FB" aria-label="Cheer for the trophy">
+          <span class="sd-ring" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+        </button>
+        <span class="sd-line" aria-hidden="true"></span>
+        <span class="sd-text">Gold Medalist</span>
+        <span class="sd-line" aria-hidden="true"></span>
+        <span class="sd-count" aria-live="polite"><b>0</b> cheers</span>
+        <span class="sd-dots" aria-hidden="true"><i></i><i></i><i></i></span>
       </div>
-    </section>
-    <section class="frames-section">
-      <div class="container">
-        <div class="frames">
-          <figure class="frame"><div class="frame-img"><img src="achievement1.jpg" alt="Achievement photo 1"><span>Photo 1<br>achievement1.jpg</span></div></figure>
-          <figure class="frame"><div class="frame-img"><img src="achievement2.jpg" alt="Achievement photo 2"><span>Photo 2<br>achievement2.jpg</span></div></figure>
-          <figure class="frame"><div class="frame-img"><img src="achievement3.jpg" alt="Achievement photo 3"><span>Photo 3<br>achievement3.jpg</span></div></figure>
+      <div class="side-deco right sd-ice">
+        <button type="button" class="sd-badge sd-btn" data-sd data-symbols="✦|★" data-msgs="With honors!|Scholar!|Keep learning!|Proud!" data-colors="#E3F0FB,#B3CFE5,#FFFFFF,#7C9BFF" aria-label="Clap for the scholar">
+          <span class="sd-ring" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v6"/></svg>
+        </button>
+        <span class="sd-line" aria-hidden="true"></span>
+        <span class="sd-text">Scholar</span>
+        <span class="sd-line" aria-hidden="true"></span>
+        <span class="sd-count" aria-live="polite"><b>0</b> claps</span>
+        <span class="sd-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      </div>
+    <section class="ach-section">
+      <div class="container ach-layout">
+
+        <aside class="ach-side">
+          <div class="page-intro">
+            <h1>Achievements</h1>
+            <p class="lead typewriter" id="achievements-typing">Milestones, awards, and certifications.</p>
+          </div>
+
+          <div class="ach-stats">
+            <div class="ach-stat"><b>6</b><span>Milestones</span></div>
+            <div class="ach-stat"><b>7</b><span>Years of football</span></div>
+            <div class="ach-stat"><b>1</b><span>Scholarship</span></div>
+          </div>
+
+          <div class="edu-card">
+            <p class="edu-label">Education</p>
+            <ul class="edu-timeline">
+              <li class="current"><span class="edu-dot"></span><div><strong>BS Information Technology</strong><small>University of the Cordilleras</small></div><time>2026 - Present</time></li>
+              <li><span class="edu-dot"></span><div><strong>Senior High School</strong><small>Baguio City High School</small></div><time>2024 - 2026</time></li>
+              <li><span class="edu-dot"></span><div><strong>Junior High School</strong><small>Baguio City High School</small></div><time>2020 - 2024</time></li>
+              <li><span class="edu-dot"></span><div><strong>Elementary</strong><small>Crystal Cave Elementary School</small></div><time>2014 - 2020</time></li>
+            </ul>
+          </div>
+
+          <div class="ach-nav">
+            <a href="about.html" class="btn btn-outline">&larr; Personal Info</a>
+            <a href="family.html" class="btn btn-next">Family &amp; Friends &rarr;</a>
+          </div>
+        </aside>
+
+        <div class="ach-main">
+          <div class="frames">
+          <figure class="frame" tabindex="0" role="button" aria-label="Achievement photos 1 and 4. Click to change the photo.">
+            <div class="frame-img">
+              <div class="slide is-active"><img src="achievement1.jpg" alt="Achievement photo 1"><span>Photo 1<br>achievement1.jpg</span></div>
+              <div class="slide"><img src="achievement4.jpg" alt="Achievement photo 4"><span>Photo 4<br>achievement4.jpg</span></div>
+              <span class="frame-hint" aria-hidden="true">Click to change</span>
+              <span class="frame-badge" aria-hidden="true"><b>1</b>/2</span>
+            </div>
+          </figure>
+          <figure class="frame" tabindex="0" role="button" aria-label="Achievement photos 2 and 5. Click to change the photo.">
+            <div class="frame-img">
+              <div class="slide is-active"><img src="achievement2.jpg" alt="Achievement photo 2"><span>Photo 2<br>achievement2.jpg</span></div>
+              <div class="slide"><img src="achievement5.jpg" alt="Achievement photo 5"><span>Photo 5<br>achievement5.jpg</span></div>
+              <span class="frame-hint" aria-hidden="true">Click to change</span>
+              <span class="frame-badge" aria-hidden="true"><b>1</b>/2</span>
+            </div>
+          </figure>
+          <figure class="frame" tabindex="0" role="button" aria-label="Achievement photos 3 and 6. Click to change the photo.">
+            <div class="frame-img">
+              <div class="slide is-active"><img src="achievement3.jpg" alt="Achievement photo 3"><span>Photo 3<br>achievement3.jpg</span></div>
+              <div class="slide"><img src="achievement6.jpg" alt="Achievement photo 6"><span>Photo 6<br>achievement6.jpg</span></div>
+              <span class="frame-hint" aria-hidden="true">Click to change</span>
+              <span class="frame-badge" aria-hidden="true"><b>1</b>/2</span>
+            </div>
+          </figure>
         </div>
-      </div>
-    </section>
-    <section class="timeline-section">
-      <div class="container">
-        <ol class="timeline">
+          <ol class="timeline">
           <li><time>2020-2026</time><h3>With Honors</h3><p>Consistent w/honor from junior-high to senior-high.</p></li>
           <li><time>2019-2026</time><h3>Able to travel places</h3><p>Through football i had the experience to explore other cultures.</p></li>
           <li><time>2023-2026</time><h3>CARAA gold medalist</h3><p>Able to represent the city with the chance to lead the team.</p></li>
           <li><time>2026</time><h3>Earned a Scholarship</h3><p>Scholar of the University of the Cordilleras.</p></li>
+          <li><time>2024</time><h3>Batang Pinoy Champion</h3><p>Earned a pride for our city.</p></li>
+          <li><time>2025</time><h3>Red Cross Training</h3><p>Able to know basic First-Aid.</p></li>
         </ol>
+        </div>
+
       </div>
     </section>
   </main>
