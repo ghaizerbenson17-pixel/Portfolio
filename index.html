@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Chris Ghaizer Benson</title>
+  <meta name="description" content="Portfolio of Chris Ghaizer Benson, BSIT student and aspiring web developer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">Personal Information</a></li>
+        
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="family.html">Family and Friends</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <h1>Hi, I'm <span>Chris Ghaizer Benson</span>.</h1>
+          <p class="typed-title" aria-label="BSIT Student | Aspiring Web Developer"><span id="typed">BSIT Student | Aspiring Web Developer</span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="lead">A dedicated student-athlete with a passion for technology, creativity, and continuous learning. Building skills both on the field and in web development.</p>
+          <ul class="hero-chips" aria-label="Quick facts">
+            <li class="chip-gold">1st Year BSIT</li>
+            <li>University of the Cordilleras</li>
+            <li>Football Player</li>
+            <li>CARAA Gold Medalist</li>
+          </ul>
+          <div class="btn-row">
+            <a href="achievements.html" class="btn">View Achievements</a>
+            <a href="about.html" class="btn btn-next">Personal Info &rarr;</a>
+          </div>
+        </div>
+        <!-- Replace profile.jpg with your own photo (same folder as index.html). -->
+        <div class="hero-visual">
+          <span class="hv-ring" aria-hidden="true"></span>
+          <span class="hv-ring hv-ring-2" aria-hidden="true"></span>
+          <span class="hv-frame" aria-hidden="true"></span>
+          <figure class="hero-photo">
+            <img src="1.jpeg" alt="Profile photo of Chris Ghaizer Benson">
+          </figure>
+          <button type="button" class="hv-badge ball" aria-label="Bounce the soccer ball" title="Click me">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 8.2l3.4 2.5-1.3 4h-4.2l-1.3-4z"/><path d="M12 8.2V2.6M15.4 10.7l5.2-1.8M14.1 14.7l3.2 4.4M9.9 14.7l-3.2 4.4M8.6 10.7L3.4 8.9"/></svg>
+          </button>
+          <span class="hv-badge code" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Chris Ghaizer Benson</strong> &copy; <span class="year">2026</span>. All rights reserved.</p>
+      <ul class="socials">
+        <li><a href="https://www.facebook.com/ghaizer.rodriguez" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="https://www.instagram.com/ghaizerz_17/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com/ghaizerbenson17-pixel" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
